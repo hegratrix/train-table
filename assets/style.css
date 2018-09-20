@@ -1,5 +1,5 @@
 body {
-    background-image: url(./background.jpg);
+    background-image: url(./images/background.jpg);
     font-family: 'Bungee', cursive;
 }
 
@@ -12,6 +12,11 @@ body {
     font-family: 'Faster One', cursive;
     padding: 45px;
     margin-bottom: 15px;
+}
+
+h2 {
+    color: rgb(82, 14, 54);
+    font-size: 30px;
 }
 
 #schedule-container, #form-container {
@@ -41,12 +46,16 @@ form {
 }
 
 input:placeholder {
-    color: rgb(82, 14, 54)
+    color: rgb(82, 14, 54);
 }
 
 .btn {
     background-color: rgb(14, 14, 82);
     border: none;
+}
+
+th {
+    color: rgb(82, 14, 54);
 }
 
 .btn:hover {
@@ -59,10 +68,27 @@ label {
 
 .form-control::placeholder {
     color: rgb(82, 14, 54);
-    opacity: .3;
+    opacity: .7;
 }
 
-/* 
-font-family: 'Bungee Inline', cursive;
-font-family: 'Faster One', cursive;
-font-family: 'Bungee', cursive; */
+button {
+    color: rgb(99, 96, 96);
+    background-color: rgb(82, 14, 54);
+}
+
+#update-button {
+    position: absolute;
+    top: 14px;
+    right: 22px;
+    padding: 5px;
+}
+#daily-train-schedule {
+    float: left;
+}
+
+#schedule-header {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    background-color: rgb(14, 14, 82);
+}

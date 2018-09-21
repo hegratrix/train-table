@@ -10,7 +10,7 @@ firebase.initializeApp(config);
  
 let db = firebase.database()
 let userRef = db.ref()
-
+console.log(userRef)
 $(document).ready(function (){
   setInterval (function() {
     let time = moment().format("HH:mm:ss")
@@ -97,7 +97,7 @@ userRef.on("child_added", function(snapshot) {
   let frequencyOfTrain = snapshot.val().Frequency
   let nextArrival = nextArrivalCalculator(timeOfTrain, frequencyOfTrain)
   let minutesLeft = minutesLeftCalculator(timeOfTrain, frequencyOfTrain)
-  console.log(nameOfTrain)
+  let id = snapshot.key
   let newRow = $("<tr>").append(
     $("<td>").text(nameOfTrain),
     $("<td>").text(destinationOfTrain),
@@ -105,7 +105,7 @@ userRef.on("child_added", function(snapshot) {
     $("<td>").text(frequencyOfTrain),
     $("<td>").text(nextArrival),
     $("<td>").text(minutesLeft),
-    $("<td>").html(`<button type='button' onclick="removeTrain('${nameOfTrain}')">Remove</button>`)
+    $("<td>").html(`<button id="remove" type='button' onclick="removeTrain('${id}')">Remove</button>`)
   )
   $("#train-table > tbody").append(newRow)
 })
@@ -139,6 +139,6 @@ function minutesLeftCalculator(firstTime, frequency) {
 }
 
 function removeTrain (whichTrain) {
-  console.log('remove')
-  console.log(whichTrain)
+  userRef.child(whichTrain).remove()
+  location.reload()
 }
